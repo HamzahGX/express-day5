@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      color: #333;
+      text-align: center;
+      margin-top: 20px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    li {
+      background-color: #fff;
+      margin: 10px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      min-width: 300px;
+      max-width: 400px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    li:hover {
+      transform: scale(1.05);
+    }
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+  </style>
+
+  <title>Product Showroom</title>
+</head>
+<body>
+  <h1>Product Showroom</h1>
+  <ul>
+    <% products.forEach((product) => { %>
+      <li>
+        <h2><%= product.name %></h2>
+        <p>Price: $<%= product.price %></p>
+        <p>Description: <%= product.description %></p>
+        <!-- Check if image1 exists before rendering -->
+        <% if (product.image1) { %>
+          <img src="<%= product.image1 %>" alt="<%= product.name %> Image 1">
+        <% } %>
+        <!-- Check if image2 exists before rendering -->
+        <% if (product.image2) { %>
+          <img src="<%= product.image2 %>" alt="<%= product.name %> Image 2">
+        <% } %>
+      </li>
+    <% }); %>
+  </ul>
+</body>
+</html>
